@@ -12,14 +12,16 @@ class DataManager:
         self.bearer_headers = {
             "Authorization": f"Bearer {self.TOKEN}"
         }
+        print(self.ENDPOINT_SHEETY)
         
         
     def get_sheet_rows(self):
-        response = requests.get(url=self.ENDPOINT_SHEETY, params={},auth=self.bearer_headers)
+        response = requests.get(url=self.ENDPOINT_SHEETY, headers=self.bearer_headers)
         result = response.json()
         print(response)
         print(result)
+        return result
     
 
-dataManager = DataManager()
-dataManager.get_sheet_rows()
+# dataManager = DataManager()
+# dataManager.get_sheet_rows()
